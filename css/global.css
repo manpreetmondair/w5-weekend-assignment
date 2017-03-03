@@ -1,0 +1,57 @@
+* { box-sizing: border-box; }
+img { width: 100%; }
+
+body {
+  background: url(../img/seigaiha.png);
+}
+
+#logo {
+  width: 150px;
+  transition: all 0.3s ease;
+}
+
+#logo:hover {
+  transform: scale(3) rotate(360deg);
+}
+
+.panel {
+  opacity: 1;
+  height: auto;
+  margin-bottom: 0;
+  transition: all 0.5s ease;
+}
+
+.panel-default>.panel-heading {
+  background: #3ECDB3;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.fade-out {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#logout {
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#logout:hover {
+  transform: scale(2) rotate(360deg);
+}
+
+.list-group-item {
+  transition: all .5s ease;
+}
+
+.list-group-item:hover {
+  transform: scale(1.1);
+  margin-bottom: 1px;
+  background: pink;
+}
