@@ -1,22 +1,27 @@
 <!doctype html>
 <html>
 <head>
-    <title>TXTLY Messages</title>
+    <title>THE IRON YARD</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,fetch,Array.prototype.includes"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/global.css" />
+     <link rel="stylesheet" href="css/messages.css" />
 </head>
 <body>
+   
     <br /><br />
     <div class="container">
-        <div class="row">
+         <div class="row">
+             
+             
+             <img align="right" id="logo" src="img/chirp.png" alt="the iron yard -platform for the future" />
             <div class="col-sm-6 col-sm-offset-3">
-
                 <div class="text-center">
-                    <img id="logo" src="img/favicon.png" alt="txtly - the message platform for the future" /><br /><br />
+                    <img id="logo" src="img/favicon.png" alt="the iron yard -platform for the future" /><br /><br />
                 </div>
+    <!--To make a text area and button use bootstrap-->
                 <div class="form-group">
                             <div class="input-group">
                                 <input id="message" type="text" class="form-control" maxlength="160" placeholder="Enter a message...">
@@ -24,29 +29,21 @@
                                     <button id="sendMessage" class="btn btn-info" type="button">Send</button>
                                 </span>
                             </div>
-                        </div>
+                </div>
 
+                <!--<a href="users.html" class="btn btn-info btn-lg active" role="button">Go back</a>-->
+
+               
                 
-                <!--<div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4>Messages</h4>
-                    </div>
-                    <div class="panel-body">-->
-
-                        <p><a href="users.html">Back</a></p>
-
                         <ul class="list-group" id="messages">
                             
                         </ul>
+                         <p class="link"><a  href="users.html">Go Back</a></p>
 
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
-    
-    <script src="js/global.js"></script>
+              </div>
     <script src="js/messages.js"></script>
+    
 </body>
 </html>

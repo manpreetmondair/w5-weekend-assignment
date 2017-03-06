@@ -1,31 +1,21 @@
 
 var backendUrl = 'https://shielded-taiga-17184.herokuapp.com';
+// call id #sendMessage and use addEventListener to do actions on click
 document.querySelector('#sendMessage').addEventListener('click', sendMessage);
+//use keypress function for text area whose id is message and it will perform th same function sendMessage
 document.querySelector('#message').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         sendMessage();
     }
 })
 
-function renderMessagesList(messages) {
-    console.log(messages);
-
-    messages = messages.reverse();
-
-    messages.forEach(createMessage);
-}
-
-function createMessage(message) {
-    var messageListItem = `<li data-id="${message.id}" class="list-group-item">${message.body}</li>`;
-    var currentMessagesHTML = document.querySelector('#messages').innerHTML;
-
-    document.querySelector('#messages').innerHTML = messageListItem + currentMessagesHTML;
-}
-
+// make a function sendMessage which will send the message on click and fetch the messages from backend and save the token
 function sendMessage() {
+    // variable message will select the value inside the message area
     var message = document.querySelector('#message').value;
+    //variable token will get and store the token
     var token = sessionStorage.getItem('token');
-
+    //if  there is null in the message value then it will fetch the messages by using POSTS
     document.querySelector('#message').value = '';
     fetch(backendUrl + '/posts', {
         method: 'POST',
@@ -54,8 +44,26 @@ function sendMessage() {
 
         })
 }
-postChirp();
-function postChirp() {
+
+
+function renderMessagesList(messages) {
+    console.log(messages);
+
+    messages = messages.reverse();
+
+    messages.forEach(createMessage);
+}
+
+function createMessage(message) {
+    var messageListItem = `<li data-id="${message.id}" class="list-group-item">${message.body}</li>`;
+    var currentMessagesHTML = document.querySelector('#messages').innerHTML;
+
+    document.querySelector('#messages').innerHTML = messageListItem + currentMessagesHTML;
+}
+
+
+getChirp();
+function getChirp() {
     var token = sessionStorage.getItem('token');
    fetch(backendUrl + '/posts?token=' + token)
     .then(function(response) {

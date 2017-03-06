@@ -26,7 +26,7 @@ function signin() {
             if (response.token) {
                 // Saves any string into a named spot within your browser for the current domain.
                 sessionStorage.setItem('token', response.token);
-                location.href = 'users.html';
+                location.href = 'messages.html';
                 console.log(response.token)
             }
             else {
