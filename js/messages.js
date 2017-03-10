@@ -33,8 +33,9 @@ function sendMessage() {
             return response.json();
         })
         .then(function(response) {
-            // console.log(response);
-          var messageSent = document.querySelector('#messageSent');
+            createMessage(response);
+          
+           var messageSent = document.querySelector('#messageSent');
             messageSent.classList.remove('hidden');
             messageSent.children[0].innerHTML = 'Message Sent: ' + response.body;
 
@@ -44,24 +45,6 @@ function sendMessage() {
 
         })
 }
-
-
-function renderMessagesList(messages) {
-    console.log(messages);
-
-    messages = messages.reverse();
-
-    messages.forEach(createMessage);
-}
-
-function createMessage(message) {
-    var messageListItem = `<li data-id="${message.id}" class="list-group-item">${message.body}</li>`;
-    var currentMessagesHTML = document.querySelector('#messages').innerHTML;
-
-    document.querySelector('#messages').innerHTML = messageListItem + currentMessagesHTML;
-}
-
-
 getChirp();
 function getChirp() {
     var token = sessionStorage.getItem('token');
@@ -70,16 +53,25 @@ function getChirp() {
         return response.json();
     })
     .then(function(response) {
-        renderUsersList(response);
+        renderMessagesList(response);
     })
 }
-function renderUsersList(users) {
-    console.log(users);
 
-    users.forEach(function(user) {
-
-        var userListItem = `<div data-id="${user.id}" class="list-group-item">${user.body}`;
-        document.querySelector('#messages').innerHTML += userListItem ;
-    });
+function renderMessagesList(messages) {
+    console.log(messages);
+//    messages = messages.reverse();
+   messages.forEach(createMessage);
 }
+
+
+function createMessage(message) {
+    var messageListItem = `<li class="list-group-item">${message.body}</li>`;
+    var currentMessagesHTML = document.querySelector('#messages').innerHTML;
+
+    document.querySelector('#messages').innerHTML += messageListItem ;
+}
+
+
+
+
 

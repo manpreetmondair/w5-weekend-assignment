@@ -12,7 +12,7 @@ body {
 }
 
 #logo:hover {
-  transform: scale(3) rotate(180deg);
+  transform: scale(3) rotate(360deg);
 }
 
 .panel {
