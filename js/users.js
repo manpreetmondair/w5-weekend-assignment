@@ -23,7 +23,7 @@ document.querySelector('#users').addEventListener('click', function(e) {
 //logot button
 document.querySelector('#logout').addEventListener('click', function() {
     sessionStorage.clear();
-    location.href = 'signup.html?logout=yes';           //?
+    location.href = 'index.html?logout=yes';           //?
 });
 
 //call of function
